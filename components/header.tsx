@@ -9,7 +9,8 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Header() {
   // const [activeSection, setActiveSection] = useState("Projects");
-  const { activeSection, setActiveSection } = useActiveSectionContext();
+  const { activeSection, setActiveSection, setTimeOfLastClick } =
+    useActiveSectionContext();
 
   return (
     <motion.div
@@ -27,7 +28,10 @@ export default function Header() {
               animate={{ y: 0, opacity: 1 }}
             >
               <Link
-                onClick={() => setActiveSection(link.name)}
+                onClick={() => {
+                  setActiveSection(link.name);
+                  setTimeOfLastClick(Date.now());
+                }}
                 className={clsx(
                   "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 ",
                   {

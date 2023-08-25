@@ -1,24 +1,18 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React from "react";
 import myprofile from "@/public/iin-bin-koswara.jpg";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-import { useInView } from "react-intersection-observer";
+import { useSectionInView } from "@/app/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 export default function Intro() {
-  const { ref, inView } = useInView({ threshold: 0.8 });
+  const { ref } = useSectionInView("Home", 0.5);
+  const { setTimeOfLastClick, setActiveSection } = useActiveSectionContext();
 
-  const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
-
-  useEffect(() => {
-    if (inView && Date.now() - timeOfLastClick > 1000) {
-      setActiveSection("Home");
-    }
-  }, [inView, setActiveSection, timeOfLastClick]);
   return (
     <section
       ref={ref}
@@ -82,6 +76,10 @@ export default function Intro() {
         }}
       >
         <Link
+          onClick={() => {
+            setActiveSection("Contact");
+            setTimeOfLastClick(Date.now());
+          }}
           href="#contact"
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
         >

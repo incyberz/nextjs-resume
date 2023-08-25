@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { validateString } from "@/app/lib/utils";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -28,7 +29,7 @@ export const sendEmail = async (formData: FormData) => {
     from: "onboarding@resend.dev",
     to: "incyberz@yahoo.com",
     subject: "Message From your Online Resume",
-    reply_to: senderEmail,
-    text: message,
+    reply_to: senderEmail as string,
+    text: message as string,
   });
 };

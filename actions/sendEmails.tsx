@@ -1,15 +1,11 @@
 "use server";
 
 import { Resend } from "resend";
-import { validateString } from "@/app/lib/utils";
+import { validateString, getErrorMessage } from "@/app/lib/utils";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
-  console.log("Running on Server");
-  console.log(formData.get("senderEmail"));
-  console.log(formData.get("message"));
-
   const senderEmail = formData.get("senderEmail");
   const message = formData.get("message");
 
@@ -25,11 +21,17 @@ export const sendEmail = async (formData: FormData) => {
     };
   }
 
-  resend.emails.send({
-    from: "onboarding@resend.dev",
-    to: "incyberz@yahoo.com",
-    subject: "Message From your Online Resume",
-    reply_to: senderEmail as string,
-    text: message as string,
-  });
+  try {
+    await resend.emails.send({
+      from: "My Contact Form: <onboarding@resend.dev>",
+      to: "incyberz@yahoo.com",
+      subject: "Message From your Online Resume",
+      reply_to: senderEmail as string,
+      text: message as string,
+    });
+  } catch (error: unknown) {
+    return {
+      error: getErrorMessage(error),
+    };
+  }
 };

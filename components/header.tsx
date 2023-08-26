@@ -33,9 +33,9 @@ export default function Header() {
                   setTimeOfLastClick(Date.now());
                 }}
                 className={clsx(
-                  "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300 ",
+                  "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:!text-gray-100 dark:hover:text-gray-300 ",
                   {
-                    "text-black dark:text-gray-200 ":
+                    "text-black dark:text-gray-50 ":
                       activeSection === link.name,
                   }
                 )}
@@ -45,7 +45,7 @@ export default function Header() {
 
                 {link.name === activeSection && (
                   <motion.span
-                    className="bg-red-200 rounded-full absolute inset-0 -z-10 dark:bg-gray-500"
+                    className="bg-red-200 rounded-full absolute inset-0 -z-10 dark:bg-gray-500 "
                     layoutId="activeSection"
                     transition={{
                       type: "spring",

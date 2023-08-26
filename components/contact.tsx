@@ -38,7 +38,7 @@ export default function Contact() {
     >
       <SectionHeading>Contact me</SectionHeading>
 
-      <p className="text-gray-700 -mt-6 ">
+      <p className="text-gray-700 -mt-6 dark:text-gray-50">
         Please contact me directly at{" "}
         <a className="underline" href="mailto:example@gmail.com">
           example@gmail.com
@@ -47,7 +47,7 @@ export default function Contact() {
       </p>
 
       <form
-        className="mt-10 flex flex-col "
+        className="mt-10 flex flex-col dark:text-black"
         action={async (formData) => {
           console.log("Running on client");
           console.log(formData.get("senderEmail"));
@@ -65,7 +65,7 @@ export default function Contact() {
         }}
       >
         <input
-          className="h-14 px-4 rounded-lg borderBlack transition-all "
+          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-70 dark:focus:bg-opacity-95 outline-none transition-all "
           name="senderEmail"
           type="email"
           required
@@ -73,7 +73,7 @@ export default function Contact() {
           placeholder="Your email"
         />
         <textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4  transition-all "
+          className="h-52 my-3 rounded-lg borderBlack p-4   dark:bg-white dark:bg-opacity-70 dark:focus:bg-opacity-95 outline-none transition-all "
           name="message"
           placeholder="Your message"
           required

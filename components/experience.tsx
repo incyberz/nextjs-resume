@@ -10,9 +10,11 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { experiencesData } from "@/app/lib/data";
+import { useTheme } from "@/context/theme-context";
 
 export default function Experience() {
   const { ref } = useSectionInView("Experience");
+  const { theme } = useTheme();
 
   return (
     <motion.section
@@ -29,7 +31,7 @@ export default function Experience() {
           <React.Fragment key={index}>
             <VerticalTimelineElement
               contentStyle={{
-                background: "#f3f3f6",
+                background: theme === "light" ? "#f3f3f6" : "#ffffff22",
                 boxShadow: "none",
                 border: "1px solid #ccc",
                 textAlign: "left",
@@ -41,13 +43,13 @@ export default function Experience() {
               date={item.date}
               icon={item.icon}
               iconStyle={{
-                background: "#efe",
+                background: theme === "light" ? "#efe" : "#33a",
                 fontSize: "24px",
               }}
             >
               <h3 className="font-semibold capitalize">{item.title}</h3>
               <p className="font-normal !mt-0">{item.location}</p>
-              <p className="!mt-1 !font-normal text-gray-600">
+              <p className="!mt-1 !font-normal text-gray-600 dark:text-gray-300">
                 {item.description}
               </p>
             </VerticalTimelineElement>

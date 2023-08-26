@@ -5,3 +5,10 @@
 html{
   --line-color: #c1d2f4;
 }
+html.dark{
+  --line-color: #153470;
+}
+
+.borderBlack{
+  @apply border border-black/10
+}

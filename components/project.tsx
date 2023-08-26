@@ -32,14 +32,16 @@ export default function Project({
       }}
       className="group mb-3 sm:mb-8 last:mb-0"
     >
-      <section className="bg-gray-100 max-w-[45rem] border border-black/5 overflow-hidden sm:pr-8  relative sm:h-[20rem]  rounded-xl even:pl-8 hover:bg-gray-200 transition">
-        <div className="text-left pt-4 pb-8 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full group-even:ml-[20rem]">
+      <section className="bg-gray-100 max-w-[45rem] border border-black/5 overflow-hidden sm:pr-8  relative sm:h-[20rem]  rounded-xl even:pl-8 hover:bg-gray-200 transition dark:bg-gray-800 dark:border-white/20">
+        <div className="text-left pt-4 pb-8 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[20rem]">
           <h3 className="text-2xl font-semibold">{title}</h3>
-          <p className="mt-2 leading-relaxed text-gray-700 ">{description}</p>
+          <p className="mt-2 leading-relaxed text-gray-700 dark:text-gray-200">
+            {description}
+          </p>
           <ul className="flex gap-2 mt-5 flex-wrap sm:mt-auto">
             {tags.map((tag, index) => (
               <li
-                className="bg-black/[0.7] px-4 text-[0.7rem] uppercase tracking-wider rounded-full text-white"
+                className="bg-black/[0.7] px-4 py-2 text-[0.7rem] uppercase tracking-wider rounded-full text-white dark:text-white/90 "
                 key={index}
               >
                 {tag}
@@ -51,7 +53,7 @@ export default function Project({
           src={imageUrl}
           alt="Project I worked on"
           quality={90}
-          className="absolute top-8 -right-40 w-[28rem] rounded-t-lg shadow-2xl 
+          className="hidden sm:block absolute top-8 -right-40 w-[28rem] rounded-t-lg shadow-2xl 
         group-hover:scale-105
 
         group-hover:-translate-x-3

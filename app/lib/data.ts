@@ -2,6 +2,7 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
+import kingscar from "@/public/kingscar.png";
 import academicsystemImg from "@/public/academicsystem.png";
 import qwarsonlineImg from "@/public/qwarsonline.png";
 import admissionsystemImg from "@/public/admissionsystem.png";
@@ -78,23 +79,30 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "KingsCar | Car Catalogue and Rents",
+    description:
+      "Prototyping Website base on Next-JS13 and Typescript. Frontend with Headless-UI, backend with Free Cars API. Link at https://kingscar.vercel.app.",
+    tags: ["NextJS","Typescript","React", "Headless-UI", "Cars-API", "Tailwind"],
+    imageUrl: kingscar,
+  },
+  {
     title: "Academic Systems of STMIK IKMI Cirebon",
     description:
-      "I worked as a full-stack developer on this campus for 3 years. The users are all academic stafs, all-students, all-lecturer, also companies that employ campus students",
+      "I worked as a full-stack developer on this campus for 3 years. The users are all academic stafs, all-students, all-lecturer, also companies that employ campus students. Link: http://siakad.ikmi.ac.id",
     tags: ["React", "React Native", "MongoDB", "Bootstrap", "PHP", "MySQL", "RESTfull API"],
     imageUrl: academicsystemImg,
   },
   {
     title: "Gamified Fun Learning Question Wars",
     description:
-      "Teaching must be fun, accurate, objective, and computerized offcourse! I create this app to teach more than 500 students online without any problems",
+      "Teaching must be fun, accurate, objective, and computerized offcourse! I create this app to teach more than 500 students online without any problems. Link: https://qwars.online",
     tags: ["Gamification","PHP", "MySQL", "JQuery", "MySQL", "REST"],
     imageUrl: qwarsonlineImg,
   },
   {
     title: "Infographics Admission System",
     description:
-      "The chancellor can see the registration progress with realtime infographic from his cell phone",
+      "The chancellor can see the registration progress with realtime infographic from his cell phone. Link: http://pmb.ikmi.ac.id",
     tags: ["ChartJS","PHP", "MySQL", "REST"],
     imageUrl: admissionsystemImg,
   },
